@@ -12,6 +12,7 @@ loadFont();
 void Application::run()
 {
     sf::RenderWindow window(sf::VideoMode(700, 1200), "SFML Application");
+    Calculator calc;
     while (window.isOpen())
     {
         sf::Event event;
@@ -24,7 +25,7 @@ void Application::run()
 
         }
         window.clear();
-        window.draw(button);
+        window.draw(calc);
         window.display();
     }
 }

@@ -7,7 +7,7 @@
 #include "SFML/Graphics.hpp"
 #include "ResourceHandler.h"
 #include "ResourceHolder.h"
-#include "Buttons.h"
+#include "Calculator.h"
 
 class Application
 {
