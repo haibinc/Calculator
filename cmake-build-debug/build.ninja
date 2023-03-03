@@ -95,6 +95,20 @@ build CMakeFiles/Calculator.dir/Typing.cpp.o: CXX_COMPILER__Calculator_Debug /Us
   OBJECT_DIR = CMakeFiles/Calculator.dir
   OBJECT_FILE_DIR = CMakeFiles/Calculator.dir
 
+build CMakeFiles/Calculator.dir/RPN.cpp.o: CXX_COMPILER__Calculator_Debug /Users/haibin/CLionProjects/Calculator/RPN.cpp || cmake_object_order_depends_target_Calculator
+  DEP_FILE = CMakeFiles/Calculator.dir/RPN.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -std=gnu++14
+  INCLUDES = -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Calculator.dir
+  OBJECT_FILE_DIR = CMakeFiles/Calculator.dir
+
+build CMakeFiles/Calculator.dir/ShuntingYard.cpp.o: CXX_COMPILER__Calculator_Debug /Users/haibin/CLionProjects/Calculator/ShuntingYard.cpp || cmake_object_order_depends_target_Calculator
+  DEP_FILE = CMakeFiles/Calculator.dir/ShuntingYard.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -std=gnu++14
+  INCLUDES = -isystem /usr/local/include
+  OBJECT_DIR = CMakeFiles/Calculator.dir
+  OBJECT_FILE_DIR = CMakeFiles/Calculator.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Calculator
@@ -103,7 +117,7 @@ build CMakeFiles/Calculator.dir/Typing.cpp.o: CXX_COMPILER__Calculator_Debug /Us
 #############################################
 # Link the executable Calculator
 
-build Calculator: CXX_EXECUTABLE_LINKER__Calculator_Debug CMakeFiles/Calculator.dir/main.cpp.o CMakeFiles/Calculator.dir/ResourceHandler.cpp.o CMakeFiles/Calculator.dir/Buttons.cpp.o CMakeFiles/Calculator.dir/Application.cpp.o CMakeFiles/Calculator.dir/Calculator.cpp.o CMakeFiles/Calculator.dir/Position.cpp.o CMakeFiles/Calculator.dir/Typing.cpp.o | /usr/local/lib/libsfml-graphics.2.5.1.dylib /usr/local/lib/libsfml-audio.2.5.1.dylib /usr/local/lib/libsfml-network.2.5.1.dylib /usr/local/lib/libsfml-window.2.5.1.dylib /usr/local/lib/libsfml-system.2.5.1.dylib
+build Calculator: CXX_EXECUTABLE_LINKER__Calculator_Debug CMakeFiles/Calculator.dir/main.cpp.o CMakeFiles/Calculator.dir/ResourceHandler.cpp.o CMakeFiles/Calculator.dir/Buttons.cpp.o CMakeFiles/Calculator.dir/Application.cpp.o CMakeFiles/Calculator.dir/Calculator.cpp.o CMakeFiles/Calculator.dir/Position.cpp.o CMakeFiles/Calculator.dir/Typing.cpp.o CMakeFiles/Calculator.dir/RPN.cpp.o CMakeFiles/Calculator.dir/ShuntingYard.cpp.o | /usr/local/lib/libsfml-graphics.2.5.1.dylib /usr/local/lib/libsfml-audio.2.5.1.dylib /usr/local/lib/libsfml-network.2.5.1.dylib /usr/local/lib/libsfml-window.2.5.1.dylib /usr/local/lib/libsfml-system.2.5.1.dylib
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /usr/local/lib/libsfml-graphics.2.5.1.dylib  /usr/local/lib/libsfml-audio.2.5.1.dylib  /usr/local/lib/libsfml-network.2.5.1.dylib  /usr/local/lib/libsfml-window.2.5.1.dylib  /usr/local/lib/libsfml-system.2.5.1.dylib
   OBJECT_DIR = CMakeFiles/Calculator.dir

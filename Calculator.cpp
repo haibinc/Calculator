@@ -64,7 +64,6 @@ void Calculator::setup()
             Position::right(num_Buttons[i-1], num_Buttons[i], 25);
             if(i % 3 == 0)
             {
-                std::cout << num_Symbols[i] << std::endl;
                 Position::bottom(num_Buttons[i-3], num_Buttons[i], 25);
             }
         }
