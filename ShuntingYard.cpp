@@ -8,8 +8,9 @@ ShuntingYard::ShuntingYard()
 {
 }
 
-void ShuntingYard::convertInfix(const std::string& string)
+std::string ShuntingYard::convertInfix(const std::string& string)
 {
+    std::string temp;
     for (int i = 0; i < string.size(); ++i)
     {
         if(std::isdigit(string[i]))
@@ -18,29 +19,25 @@ void ShuntingYard::convertInfix(const std::string& string)
         }
         else if (Operator(string[i]) < endEnum)
         {
-            operatorStack.push(string[i]);
-            if(operatorStack.size() > 1)
+            if(operatorStack.empty())
             {
-//                std::cout << "stack top " << operatorStack.top() << std::endl;
+                operatorStack.push(string[i]);
+            }
+            else if(!operatorStack.empty())
+            {
                 if(higherPrecedence(string[i], operatorStack.top()))
                 {
-//                    std::cout << "stack top " << operatorStack.top() << std::endl;
-//                    std::cout << "queue back " << numQueue.back() << std::endl;
-                    numQueue.push(operatorStack.top());
-                    operatorStack.pop();
-                    operatorStack.push(string[i]);
-//                    std::cout << "stack top " << operatorStack.top() << std::endl;
-//                    std::cout << "queue back " << numQueue.back() << std::endl;
+                    numQueue.push(string[i]);
                 }
                 else
                 {
-//                    std::cout << "stack top " << operatorStack.top() << std::endl;
-//                    std::cout << "queue back " << numQueue.back() << std::endl;
+//                    std::cout << "stack top: " << operatorStack.top() << std::endl;
                     numQueue.push(operatorStack.top());
+//                    std::cout << "queue back: " << numQueue.back() << std::endl;
                     operatorStack.pop();
                     operatorStack.push(string[i]);
-//                    std::cout << "stack top " << operatorStack.top() << std::endl;
-//                    std::cout << "queue back " << numQueue.back() << std::endl;
+//                    std::cout << "stack top after pop: " << operatorStack.top() << std::endl;
+//                    std::cout << "stack size: " << operatorStack.size() << std::endl;
                 }
             }
         }
@@ -48,8 +45,21 @@ void ShuntingYard::convertInfix(const std::string& string)
         {
             assert(Operator(string[i]) < endEnum);
         }
-        std::cout << numQueue.back();
+        while(i == string.size()-1 && !operatorStack.empty())
+        {
+            numQueue.push(operatorStack.top());
+            operatorStack.pop();
+//            std::cout << "stack size: " << operatorStack.size() << std::endl;
+//            std::cout << "queue size: " << numQueue.size() << std::endl;
+        }
     }
+   while(!numQueue.empty())
+   {
+
+       temp += numQueue.front();
+       numQueue.pop();
+   }
+   return temp;
 }
 
 bool ShuntingYard::higherPrecedence(char oper1, char oper2)

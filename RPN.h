@@ -4,14 +4,18 @@
 
 #ifndef CALCULATOR_RPN_H
 #define CALCULATOR_RPN_H
+#include <iostream>
 #include <stack>
+#include <cmath>
+#include "operatorPrecedence.h"
 
 class RPN
 {
 private:
-
+    std::stack<char> equationStack;
 public:
-RPN();
+    RPN();
+    int convertPostfix(const std::string string);
 };
 
 

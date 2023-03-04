@@ -16,7 +16,7 @@ private:
     std::stack<char> operatorStack;
 public:
     ShuntingYard();
-    void convertInfix(const std::string& string);
+    std::string convertInfix(const std::string& string);
     bool higherPrecedence(char oper1, char oper2);
 };
 
