@@ -11,7 +11,7 @@ Calculator::Calculator()
 
 void Calculator::setup()
 {
-    input.setPosition(570, 200);
+    input.setPosition(600, 270);
     input.setString("0");
     for (int i = 0; i < sizeof(operator_Symbols); ++i)
     {
@@ -73,6 +73,16 @@ void Calculator::setup()
 void Calculator::setPosition(float x, float y)
 {
 
+}
+
+void Calculator::eventHandler(sf::RenderWindow &window, sf::Event event)
+{
+    input.addEventHandler(window, event);
+}
+
+void Calculator::update()
+{
+    input.update();
 }
 
 void Calculator::draw(sf::RenderTarget &window, sf::RenderStates states) const

@@ -29,6 +29,8 @@ public:
     Calculator();
     void setup();
     void setPosition(float x, float y);
+    void eventHandler(sf::RenderWindow& window, sf::Event event);
+    void update();
     virtual void draw(sf::RenderTarget& window, sf::RenderStates states) const;
 };
 

@@ -33,10 +33,10 @@ float RPN::convertPostfix(std::queue<std::string>& queue)
                     num = equationStack.top();
                     equationStack.pop();
                     float temp = equationStack.top();
-                    std::cout << "temp + num: " << temp << " + " << num << std::endl;
+//                    std::cout << "temp + num: " << temp << " + " << num << std::endl;
                     answer = temp + num;
                     equationStack.pop();
-                    std::cout << "answer: " << answer << std::endl;
+//                    std::cout << "answer: " << answer << std::endl;
                     equationStack.push(answer);
                     break;
                 }
@@ -45,10 +45,10 @@ float RPN::convertPostfix(std::queue<std::string>& queue)
                     num = equationStack.top();
                     equationStack.pop();
                     float temp = equationStack.top();
-                    std::cout << "temp - num: " << temp << " - " << num << std::endl;
+//                    std::cout << "temp - num: " << temp << " - " << num << std::endl;
                     answer = temp - num;
                     equationStack.pop();
-                    std::cout << "answer: " << answer << std::endl;
+//                    std::cout << "answer: " << answer << std::endl;
                     equationStack.push(answer);
                     break;
                 }
@@ -57,10 +57,10 @@ float RPN::convertPostfix(std::queue<std::string>& queue)
                     num = equationStack.top();
                     equationStack.pop();
                     float temp = equationStack.top();
-                    std::cout << "temp * num: " << temp << " * " << num << std::endl;
+//                    std::cout << "temp * num: " << temp << " * " << num << std::endl;
                     answer = temp * num;
                     equationStack.pop();
-                    std::cout << "answer: " << answer << std::endl;
+//                    std::cout << "answer: " << answer << std::endl;
                     equationStack.push(answer);
                     break;
                 }
@@ -69,10 +69,10 @@ float RPN::convertPostfix(std::queue<std::string>& queue)
                     num = equationStack.top();
                     equationStack.pop();
                     float temp = equationStack.top();
-                    std::cout << "temp /` num: " << temp << " / " << num << std::endl;
+//                    std::cout << "temp /` num: " << temp << " / " << num << std::endl;
                     answer = temp / num;
                     equationStack.pop();
-                    std::cout << "answer: " << answer << std::endl;
+//                    std::cout << "answer: " << answer << std::endl;
                     equationStack.push(answer);
                     break;
                 }

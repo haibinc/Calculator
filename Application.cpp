@@ -22,8 +22,9 @@ void Application::run()
             {
                 window.close();
             }
-
+            calc.eventHandler(window, event);
         }
+        calc.update();
         window.clear();
         window.draw(calc);
         window.display();
