@@ -14,7 +14,7 @@ enum Operator
     DIVISION = '/',
     ADDITION = '+',
     SUBTRACTION = '-',
-    endEnum
+    endEnum = 100
 };
 
 #endif //CALCULATOR_OPERATORPRECEDENCE_H

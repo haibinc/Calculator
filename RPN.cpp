@@ -9,59 +9,75 @@ RPN::RPN()
 
 }
 
-int RPN::convertPostfix(const std::string string)
+float RPN::convertPostfix(std::queue<std::string>& queue)
 {
-    int answer = 0;
-    int secondNum = 0;
-    for (int i = 0; i < string.size(); ++i)
+    float answer = 0;
+    float num = 0;
+    while(!queue.empty())
     {
-        if(std::isdigit(string[i]))
+        if(std::isdigit(queue.front()[0]))
         {
-            equationStack.push(string[i]);
+            num = std::stof(queue.front());
+            equationStack.push(num);
+            std::cout << "second num: " << num << std::endl;
+            queue.pop();
         }
-        else if(Operator(string[i]) < endEnum && equationStack.size() >= 2)
+        else if(Operator(queue.front()[0]) < endEnum)
         {
-            while(equationStack.size() >= 2)
-            {
-                secondNum = int(equationStack.top() - '0');
-                equationStack.pop();
-                switch(string[i])
-                {
-                    case '+':
-                    {
-                        answer = int(equationStack.top() - '0') + secondNum;
-                        break;
-                    }
-                    case '-':
-                    {
-                        answer = int(equationStack.top() - '0') - secondNum;
-                        break;
-                    }
-                    case '*':
-                    {
-                        answer = int(equationStack.top() - '0') * secondNum;
-                        break;
-                    }
-                    case '/':
-                    {
-                        answer = int(equationStack.top() - '0') / secondNum;
-                        break;
-                    }
-                    case '^':
-                    {
-                        answer = pow(answer = int(equationStack.top() - '0'), secondNum);
-                        break;
-                    }
-                }
-                equationStack.pop();
-                std::cout << "answer: " << answer << std::endl;
-                equationStack.push(answer + '0');
-            }
-        }
-        else
-        {
-            assert(Operator(string[i]) < endEnum);
             assert(equationStack.size() >= 2);
+            std::cout << "operator: " << queue.front()[0] << std::endl;
+            switch(queue.front()[0])
+            {
+                case '+':
+                {
+                    num = equationStack.top();
+                    equationStack.pop();
+                    float temp = equationStack.top();
+                    std::cout << "temp + num: " << temp << " + " << num << std::endl;
+                    answer = temp + num;
+                    equationStack.pop();
+                    std::cout << "answer: " << answer << std::endl;
+                    equationStack.push(answer);
+                    break;
+                }
+                case '-':
+                {
+                    num = equationStack.top();
+                    equationStack.pop();
+                    float temp = equationStack.top();
+                    std::cout << "temp - num: " << temp << " - " << num << std::endl;
+                    answer = temp - num;
+                    equationStack.pop();
+                    std::cout << "answer: " << answer << std::endl;
+                    equationStack.push(answer);
+                    break;
+                }
+                case '*':
+                {
+                    num = equationStack.top();
+                    equationStack.pop();
+                    float temp = equationStack.top();
+                    std::cout << "temp * num: " << temp << " * " << num << std::endl;
+                    answer = temp * num;
+                    equationStack.pop();
+                    std::cout << "answer: " << answer << std::endl;
+                    equationStack.push(answer);
+                    break;
+                }
+                case '/':
+                {
+                    num = equationStack.top();
+                    equationStack.pop();
+                    float temp = equationStack.top();
+                    std::cout << "temp /` num: " << temp << " / " << num << std::endl;
+                    answer = temp / num;
+                    equationStack.pop();
+                    std::cout << "answer: " << answer << std::endl;
+                    equationStack.push(answer);
+                    break;
+                }
+            }
+            queue.pop();
         }
     }
     return answer;

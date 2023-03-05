@@ -5,6 +5,7 @@
 #ifndef CALCULATOR_RPN_H
 #define CALCULATOR_RPN_H
 #include <iostream>
+#include <queue>
 #include <stack>
 #include <cmath>
 #include "operatorPrecedence.h"
@@ -12,10 +13,10 @@
 class RPN
 {
 private:
-    std::stack<char> equationStack;
+    std::stack<float> equationStack;
 public:
     RPN();
-    int convertPostfix(const std::string string);
+    float convertPostfix(std::queue<std::string>& queue);
 };
 
 

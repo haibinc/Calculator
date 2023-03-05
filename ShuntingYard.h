@@ -12,11 +12,11 @@
 class ShuntingYard
 {
 private:
-    std::queue<char> numQueue;
+    std::queue<std::string> numQueue;
     std::stack<char> operatorStack;
 public:
     ShuntingYard();
-    std::string convertInfix(const std::string& string);
+    std::queue<std::string>& convertInfix(const std::string& string);
     bool higherPrecedence(char oper1, char oper2);
 };
 
