@@ -78,6 +78,10 @@ bool ShuntingYard::higherPrecedence(char oper1, char oper2)
     {
         return true;
     }
+    else if (Operator(oper1) == '^' && Operator(oper2) != '^')
+    {
+        return true;
+    }
     else
     {
         return false;

@@ -29,7 +29,7 @@ void Typing::addEventHandler(sf::RenderWindow &window, sf::Event event)
         {
             calculate();
         }
-        else if(event.text.unicode >= 42 && event.text.unicode <= 57 && !full)
+        else if(event.text.unicode >= 40 && event.text.unicode <= 57 && !full || event.text.unicode == 94)
         {
             addChar(event.text.unicode);
             typingPosition();

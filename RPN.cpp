@@ -19,13 +19,13 @@ float RPN::convertPostfix(std::queue<std::string>& queue)
         {
             num = std::stof(queue.front());
             equationStack.push(num);
-            std::cout << "second num: " << num << std::endl;
+//            std::cout << "second num: " << num << std::endl;
             queue.pop();
         }
         else if(Operator(queue.front()[0]) < endEnum)
         {
             assert(equationStack.size() >= 2);
-            std::cout << "operator: " << queue.front()[0] << std::endl;
+//            std::cout << "operator: " << queue.front()[0] << std::endl;
             switch(queue.front()[0])
             {
                 case '+':
@@ -75,6 +75,26 @@ float RPN::convertPostfix(std::queue<std::string>& queue)
 //                    std::cout << "answer: " << answer << std::endl;
                     equationStack.push(answer);
                     break;
+                }
+                case '^':
+                {
+                    num = equationStack.top();
+                    equationStack.pop();
+                    float temp = equationStack.top();
+//                    std::cout << "temp ^ num: " << temp << " ^ " << num << std::endl;
+                    answer = pow(temp, num);
+                    equationStack.pop();
+//                    std::cout << "answer: " << answer << std::endl;
+                    equationStack.push(answer);
+                    break;
+                }
+                case '(':
+                {
+                    equationStack.pop();
+                }
+                case ')':
+                {
+                   equationStack.pop();
                 }
             }
             queue.pop();
